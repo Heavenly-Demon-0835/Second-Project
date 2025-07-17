@@ -3,48 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Scraper</title>
+    <title>College Project | Image Scraper</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+        }
+        .dashboard {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: #1e3c72;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+        }
+        .sidebar h2 {
+            margin-bottom: 40px;
+            font-size: 22px;
+            text-align: center;
+        }
+        .sidebar a, .sidebar button {
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .sidebar a:hover, .sidebar button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+        }
+        .main {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            padding: 40px;
         }
-        .container {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
+        .form-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
             text-align: center;
         }
         h1 {
-            margin-bottom: 20px;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            font-size: 28px;
         }
         form {
             display: flex;
             flex-direction: column;
         }
-        input, button {
-            margin-bottom: 10px;
-            padding: 10px;
+        input[type="text"], input[type="url"] {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #1e3c72;
+            border-radius: 8px;
             font-size: 16px;
+        }
+        button[type="submit"] {
+            padding: 12px;
+            background-color: #1e3c72;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #16325c;
+        }
+        .footer {
+            background: #0f2027;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        .footer a {
+            color: #84c1ff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .return-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #f39c12;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Image Scraper</h1>
-        <form action="/" method="POST">
-            <input type="text" name="folder_name" placeholder="Folder Name" required>
-            <input type="url" name="url" placeholder="Image URL" required>
-            <button type="submit">Scrape Images</button>
-        </form>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>📊 Dashboard</h2>
+            <a href="#">🏠 Home</a>
+            <a href="#">🖼 Scraper</a>
+            <button onclick="window.open('file:///C:/', '_blank')">📁 Folders</button>
+            <a href="#about">ℹ️ About</a>
+        </div>
+        <div class="main">
+            <div class="form-card">
+                <h1>📸 Image Scraper Tool</h1>
+                <form action="/" method="POST">
+                    <input type="text" name="folder_name" placeholder="Enter Folder Name" required>
+                    <input type="url" name="url" placeholder="Enter Website URL" required>
+                    <button type="submit">Scrape Images</button>
+                </form>
+                <a class="return-btn" href="#">Return to Home Page</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="main" style="flex-direction: column; background: #f0f0f0; padding: 60px 30px; color: #333;">
+        <h2 style="font-size: 26px; color: #1e3c72; margin-bottom: 15px;">About This Project</h2>
+        <p style="font-size: 16px; max-width: 700px; text-align: center;">
+            This project demonstrates an image scraper that allows users, particularly freelance graphic designers or agencies,
+            to collect images directly from websites. Instead of relying on paid stock images, users can scrape visual content from multiple
+            web sources and organize them into folders for quick access and creative reuse.
+        </p>
+    </div>
+
+    <div class="footer">
+        <a href="">Instagram</a>
+        <a href="#about">About Us</a>
+        <a href="https://github.com/Heavenly-Demon-0835/" target="_blank">GitHub</a>
+        <a href="#">Scraper</a>
+        <span>© 2025 Image Scraper | All rights reserved</span>
     </div>
 </body>
 </html>
